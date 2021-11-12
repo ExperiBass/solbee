@@ -1,6 +1,7 @@
 // Used to look fancy lol
 class Block {}
 class Transaction {}
+class TransactionHash {}
 class Market {}
 class Token {}
 class TokenHolder {}
@@ -26,6 +27,7 @@ class ApiError {}
 module.exports = {
     Block,
     Transaction,
+    TransactionHash,
     Market,
     Token,
     TokenHolder,

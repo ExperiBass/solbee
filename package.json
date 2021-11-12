@@ -5,12 +5,16 @@
   "description": "Wrapper for the Solana Beach API.",
   "main": "src/solbee.js",
   "scripts": {
-    "test": "pnpm src/test.js"
+    "test": "pnpm src/test.js",
+    "build-docs": "node src/buildDocs.js"
   },
   "author": "ExperiBass",
   "license": "GPL-v3.0",
   "dependencies": {
     "axios": "^0.24.0",
     "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "documentation": "^13.2.5"
   }
 }

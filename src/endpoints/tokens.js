@@ -15,7 +15,7 @@ module.exports = {
      * @param {string} dir The sorting direction. Either 'asc' or 'desc'.
      * @returns {[Token]}
      */
-    getTokens(limit = 100, offset = 0, sort = 'name', dir = 'asc') {
+    getTokens(limit, offset, sort, dir) {
         inputValidation({
             input: limit,
             type: 'number',
@@ -59,7 +59,7 @@ module.exports = {
      * @param {number} offset
      * @returns {[TokenHolder]}
      */
-    getTokenHolders(mintAddress, limit = 100, offset = 0) {
+    getTokenHolders(mintAddress, limit, offset) {
         inputValidation({
             input: mintAddress,
             type: 'string',
@@ -93,7 +93,7 @@ module.exports = {
      * @param {string} cursor A string in the format "blockNumber,transactionIndex".
      * @returns {[TokenTransfer]}
      */
-    getTokenTransfers(mintAddress, limit = 100, offset = 0, cursor) {
+    getTokenTransfers(mintAddress, limit, offset, cursor) {
         inputValidation({
             input: mintAddress,
             type: 'string',
@@ -148,7 +148,7 @@ module.exports = {
      * @param {number} offset
      * @returns {[Token]}
      */
-    getTokensHeldByAddress(ownerAddress, limit = 100, offset = 0) {
+    getTokensHeldByAddress(ownerAddress, limit, offset) {
         inputValidation({
             input: ownerAddress,
             type: "string",

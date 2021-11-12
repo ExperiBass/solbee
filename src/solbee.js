@@ -1,7 +1,11 @@
-const {log} = require("./util/log")
+const log = require("./util/log")
 const { setSettings } = require("./util/utility")
+const {
+    formattedName,
+    version
+} = require("../package.json")
 class SolBee {
-    constructor(apiKey, projectName) {
+    constructor(apiKey, projectName = `${formattedName} v${version}`) {
         if (!apiKey) {
             log(`No api key provided on construction!`, 'WARN')
         }

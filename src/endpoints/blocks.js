@@ -1,6 +1,9 @@
 const inputValidation = require('../util/inputValidation')
 const request = require('../util/request')
-const {Program, Block} = require('../util/definitions')
+const {
+    Program,
+    Block
+} = require('../util/definitions')
 
 module.exports = {
     /**
