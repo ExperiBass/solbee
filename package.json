@@ -1,0 +1,16 @@
+{
+  "name": "solbee",
+  "formattedName": "SolBee",
+  "version": "1.0.0",
+  "description": "Wrapper for the Solana Beach API.",
+  "main": "src/solbee.js",
+  "scripts": {
+    "test": "pnpm src/test.js"
+  },
+  "author": "ExperiBass",
+  "license": "GPL-v3.0",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chalk": "^4.1.2"
+  }
+}
