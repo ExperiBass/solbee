@@ -1,4 +1,4 @@
-const {inputValidation, request} = require('../util/util')
+const {request} = require('../util/util')
 module.exports = {
     /**
      * Fetch inflation information.
