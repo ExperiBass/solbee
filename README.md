@@ -2,6 +2,9 @@
 
 Wrapper for the [Solana Beach](https://solanabeach.io/) API.
 
+# Installation
+`npm i solbee`
+
 # Usage
 ```js
 const SolBee = require('solbee')
