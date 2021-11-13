@@ -5,13 +5,18 @@ class SolBee {
         if (!apiKey) {
             log(`No api key provided on construction!`, 'WARN')
         }
-        // TODO: figure out how to pass the apiKey down to the requests function without storing a file
         setSettings({apiKey: apiKey,
         projectName: projectName})
     }
     accounts = require('./endpoints/accounts')
     blocks = require('./endpoints/blocks')
+    inflation = require('./endpoints/inflation')
+    market = require('./endpoints/market')
+    misc = require('./endpoints/misc')
     tokens = require('./endpoints/tokens')
+    tokenswap = require('./endpoints/tokenswap')
+    transactions = require('./endpoints/transactions')
+    utility = require('./endpoints/utility')
     validators = require('./endpoints/validators')
 }
 module.exports = SolBee
