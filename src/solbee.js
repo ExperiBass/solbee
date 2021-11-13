@@ -5,7 +5,7 @@ const {
     version
 } = require("../package.json")
 class SolBee {
-    constructor(apiKey, projectName = `${formattedName} v${version}`) {
+    constructor(apiKey, projectName) {
         if (!apiKey) {
             log(`No api key provided on construction!`, 'WARN')
         }
