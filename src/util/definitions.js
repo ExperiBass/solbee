@@ -17,6 +17,7 @@ class SwapInstruction {}
 class SimpleAccount {}
 class StakeAccount {}
 class Validator {}
+class SolanaNode {}
 class Wealth {}
 class Address {}
 class Amount {}
@@ -43,6 +44,7 @@ module.exports = {
     SimpleAccount,
     StakeAccount,
     Validator,
+    SolanaNode,
     Address,
     Amount,
     Wealth,
