@@ -40,7 +40,7 @@ typings/
 .vscode
 
 # other
-src/test.js
+test*
 .DS_Store
 ._*
 # ^ fuck macOS dotfiles

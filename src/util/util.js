@@ -42,7 +42,7 @@ module.exports = {
         if (query) {
             // Cicle each query entry and add to the full url in the form '&key=value'
             // Because all request already have '?datasource' no need to manage the ? on the first query param
-            Object.keys(query).forEach(queryKey => {
+            Object.keys(query).forEach((queryKey, index) => {
                 // query params undefined or empty, or array of length 0
                 if (query[queryKey] === undefined || query[queryKey] === '') {
                     return
@@ -50,7 +50,11 @@ module.exports = {
                 if (query[queryKey].length && query[queryKey].length === 0) {
                     return
                 }
-                fullURL += `&${queryKey}=${query[queryKey]}`
+                if (index === 0) {
+                    fullURL += `?${queryKey}=${query[queryKey]}`
+                } else {
+                    fullURL += `&${queryKey}=${query[queryKey]}`
+                }
             })
         }
         // and the auth token
