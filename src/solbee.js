@@ -1,9 +1,5 @@
-const log = require("./util/log")
-const { setSettings } = require("./util/utility")
-const {
-    formattedName,
-    version
-} = require("../package.json")
+const { setSettings } = require("./endpoints/utility")
+let {log} = require('./util/util')
 class SolBee {
     constructor(apiKey, projectName) {
         if (!apiKey) {

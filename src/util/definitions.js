@@ -16,7 +16,7 @@ class SerumOrder {}
 class SwapInstruction {}
 class SimpleAccount {}
 class StakeAccount {}
-class Validator {}
+class ValidatorNode {}
 class SolanaNode {}
 class Wealth {}
 class Address {}
@@ -43,7 +43,7 @@ module.exports = {
     SwapInstruction,
     SimpleAccount,
     StakeAccount,
-    Validator,
+    ValidatorNode,
     SolanaNode,
     Address,
     Amount,

@@ -1,12 +1,11 @@
-const inputValidation = require('../util/inputValidation')
-const request = require('../util/request')
-const {Validator} = require('../util/definitions')
+const {inputValidation, request} = require('../util/util')
+const {ValidatorNode} = require('../util/definitions')
 // TODO: check the returns
 module.exports = {
     /**
      * Fetch a validator by its Vote Public Key.
      * @param {string} pubkey
-     * @returns {Validator}
+     * @returns {ValidatorNode}
      */
     getValidatorByPubKey(pubkey) {
         inputValidation({

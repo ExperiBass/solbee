@@ -1,5 +1,4 @@
-const inputValidation = require('../util/inputValidation')
-const request = require('../util/request')
+const {inputValidation, request} = require('../util/util')
 const { SolanaNode } = require('../util/definitions')
 
 module.exports = {
