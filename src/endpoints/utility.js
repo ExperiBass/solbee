@@ -7,7 +7,7 @@ const {
 
 module.exports = {
     /**
-     * Gets the settings for esiJS.
+     * Gets the settings for SolBee.
      * @returns {JSON} A JSON object with the settings.
      */
     getSettings() {
@@ -44,7 +44,7 @@ module.exports = {
                     apiKey: apiKey
                 }, null, 2)
                 fs.writeFileSync(projectConfig, newConfig)
-                log(`Sucessfully updated config!\nNew config:\n${newConfig}`, 'INFO')
+                log(`Sucessfully updated config!`, 'INFO')
             } catch (e) {
                 throw throwError(`Couldn't write config file! Error:\n${e}`)
             }

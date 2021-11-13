@@ -1,5 +1,10 @@
-const {inputValidation, request} = require('../util/util')
-const { SolanaNode } = require('../util/definitions')
+const {
+    inputValidation,
+    request
+} = require('../util/util')
+const {
+    SolanaNode
+} = require('../util/definitions')
 
 module.exports = {
     /**

@@ -34,7 +34,7 @@ module.exports = {
             message: `The method ".accounts.getData" requires a Solana address.`
         })
         return request({
-            subUrl: `/accounts/${address}`
+            subUrl: `/account/${address}`
         })
     },
     /**
@@ -79,7 +79,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/transactions`,
+            subUrl: `/account/${address}/transactions`,
             query: {
                 limit: limit,
                 offset: offset,
@@ -111,7 +111,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/stakes`,
+            subUrl: `/account/${address}/stakes`,
             query: {
                 limit: limit,
                 offset: offset
@@ -136,7 +136,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${stakeAddress}/stake-rewards`,
+            subUrl: `/account/${stakeAddress}/stake-rewards`,
             query: {
                 cursor: cursor
             }
@@ -219,7 +219,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/token-transfers`,
+            subUrl: `/account/${address}/token-transfers`,
             query: {
                 limit: limit,
                 offset: offset,
@@ -261,7 +261,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/serum-instructions`,
+            subUrl: `/account/${address}/serum-instructions`,
             query: {
                 limit: limit,
                 offset: offset,
@@ -302,7 +302,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/serum-orders`,
+            subUrl: `/account/${address}/serum-orders`,
             query: {
                 limit: limit,
                 offset: offset,
@@ -343,7 +343,7 @@ module.exports = {
             optional: true
         })
         return request({
-            subUrl: `/accounts/${address}/swap-instructions`,
+            subUrl: `/account/${address}/swap-instructions`,
             query: {
                 limit: limit,
                 offset: offset,

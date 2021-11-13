@@ -1,14 +1,13 @@
 const axios = require('axios')
 const path = require('path')
+const fs = require('fs')
 const chalk = require('chalk')
 const {
     projectPath,
     projectConfig,
     localConfig
 } = require('./constants')
-const {
-    getSettings
-} = require('../endpoints/utility')
+
 const {
     version,
     formattedName
@@ -24,16 +23,20 @@ module.exports = {
         subUrl,
         query
     }) {
+        const {
+            getSettings
+        } = require('../endpoints/utility')
         const link = "https://api.solanabeach.io/v1"
         const {
             apiKey,
             programName
         } = getSettings()
+        const DEFAULT = `${formattedName}-v${version}`
         const checkForExcessSlashes = /\/(?=\/)(?<!https:\/)/g
         let headers = {
             'accept': 'application/json'
         }
-        let fullURL = `${link}${subUrl}/`
+        let fullURL = `${link}${subUrl}`
 
         // If query params are defined, add them to the end of the full url
         if (query) {
@@ -53,7 +56,7 @@ module.exports = {
         // and the auth token
         headers['Authorization'] = `Bearer: ${apiKey}`
         if (apiKey === '') {
-            throw throwError(`This API requires a auth token.`, `NO_AUTH_TOKEN`)
+            throw module.exports.throwError(`This API requires a auth token.`, `NO_AUTH_TOKEN`)
         }
         // Add in the program name if specified
         if (programName && programName !== '') {
@@ -76,7 +79,8 @@ module.exports = {
                 }
                 return data
             }).catch(error => {
-                throw throwError(error.message, 'SOLBEE_ERROR')
+                console.log(JSON.stringify(error, null, 2))
+                throw module.exports.throwError(error.message, 'SOLBEE_ERROR')
             })
     },
     /**
@@ -88,16 +92,16 @@ module.exports = {
         if (message) {
             switch (type.toLowerCase()) {
                 case 'info': {
-                    console.module.exports.log(`${chalk.green(`[${formattedName}:${type.toUpperCase()}]:`)} ${message}`)
+                    console.log(`${chalk.green(`[${formattedName}:${type.toUpperCase()}]:`)} ${message}`)
                     break
                 }
                 case 'warn':
                 case 'warning': {
-                    console.module.exports.log(`${chalk.yellow(`[${formattedName}:${type.toUpperCase()}]:`)} ${message}`)
+                    console.log(`${chalk.yellow(`[${formattedName}:${type.toUpperCase()}]:`)} ${message}`)
                     break
                 }
                 case 'error': {
-                    return `${chalk.red(`${formattedName}:${type.toUpperCase()}]:`)} ${message}`
+                    console.log(`${chalk.red(`${formattedName}:${type.toUpperCase()}]:`)} ${message}`)
                 }
                 default: {
                     return
@@ -182,9 +186,9 @@ module.exports = {
                 try {
                     // ...attempt to create it
                     fs.writeFileSync(projectConfig, JSON.stringify(require(localConfig), null, 2))
-                    module.exports.log(`Sucessfully created config file in ${path.join(__dirname, projectPath)}!`, 'INFO')
+                    module.exports.log(`Sucessfully created config file in ${projectPath}!`, 'INFO')
                 } catch (e) {
-                    throw throwError(`There was a error while attempting to create the config file! Error: \n${e}`)
+                    throw module.exports.throwError(`There was a error while attempting to create the config file! Error: \n${e}`)
                 }
                 return false
             }
@@ -192,7 +196,6 @@ module.exports = {
         } catch (e) {
             return false
         }
-        module.exports.log(`I can read the config file!`, 'INFO')
         return true
     }
 }
